@@ -5,6 +5,10 @@
  */
 
 module.exports = {
+  siteMetadata: {
+    title: "The Great Gatsby Project",
+    description: "My first project with Gatsby"
+  },
   /* Your site config here */
-  plugins: [],
+  plugins: [`gatsby-plugin-sass`]
 }

@@ -5,11 +5,13 @@ import TheHeader from '../components/TheHeader'
 //=======> CSS
 import './Layout.scss'
 
-const Layout = ({children}) => {
+const Layout = ({children, title, subtitle}) => {
     return (
         <>
            <TheHeader />
                 <div className="content">
+                    {title && <h1 className="content__title">{title}</h1>}
+                    {title && <p className="content_subtitle">{subtitle}</p>}
                     {children}
                 </div>
            <TheFooter />

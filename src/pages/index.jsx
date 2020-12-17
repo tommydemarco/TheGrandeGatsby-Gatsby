@@ -1,13 +1,30 @@
 import React from 'react'
-//=======> LAYOUT 
+import { graphql } from 'gatsby'
 import Layout from '../layout'
 
-const HomePage = () => {
+const HomePage = ({ query }) => {
   return (
-    <Layout>
-        <h1>Home page</h1>
+    <Layout 
+      title='Welcome to the Great Gatsby' 
+      subtitle="We have our roots all aroud the world, descover the place cosest to you"
+      >
+      
     </Layout>
   )
 }
+
+export const query = graphql`
+  {
+    allFile {
+      totalCount
+      edges {
+        node {
+          size
+          absolutePath
+        }
+      }
+    }
+  }
+`
 
 export default HomePage

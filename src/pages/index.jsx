@@ -1,8 +1,10 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import Layout from '../layout'
+import ClassicCard from '../components/ClassicCard'
 
 const HomePage = ({ query }) => {
+
   return (
     <Layout 
       title='Welcome to the Great Gatsby' 
@@ -11,6 +13,10 @@ const HomePage = ({ query }) => {
       
     </Layout>
   )
+}
+
+const renderCards = () => {
+  return <ClassicCard />
 }
 
 export const query = graphql`

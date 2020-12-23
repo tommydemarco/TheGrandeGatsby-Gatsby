@@ -6,13 +6,69 @@
   justify-content: center;
   position: relative;
   border-bottom: 5px solid #7f8fa6;
+
+  &__logotoggle {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    align-self: stretch;
+  }
+
+  &__toggle {
+    display: none;
+    @media only screen and (max-width: 786px) {
+      display: block;
+      position: relative;
+      width: 3rem;
+      height: 1rem;
+      transition: all 0.4s;
+      backface-visibility: hidden;
+      &:hover {
+        transform: scale(1.1);
+      }
+      cursor: pointer;
+      &::after,
+      &::before {
+        content: "";
+        width: 100%;
+        height: 2px;
+        background-color: white;
+        position: absolute;
+        display: block;
+        transition: all 0.3s;
+        backface-visibility: hidden;
+      }
+      &::before {
+        top: 0px;
+      }
+      &::after {
+        top: 1rem;
+      }
+      &--active {
+        &::before {
+          top: 0.5rem;
+          transform: rotateZ(45deg);
+        }
+        &::after {
+          top: 0.5rem;
+          transform: rotateZ(-45deg);
+        }
+      }
+    }
+  }
+
   &__container {
     display: flex;
     justify-content: space-between;
     width: 120rem;
     max-width: 90%;
     align-items: center;
+    @media only screen and (max-width: 786px) {
+      flex-direction: column;
+    }
   }
+
   &__logo {
     font-family: "Gochi Hand", cursive;
     color: white;
@@ -22,17 +78,33 @@
       color: #ced6e0;
     }
   }
+
   &__navigation {
+    @media only screen and (max-width: 786px) {
+      height: 0;
+      transition: all 0.4s;
+      -webkit-transition-duration: 0.4s;
+      overflow: hidden;
+      &--active {
+        height: fit-content;
+      }
+    }
   }
+
   &__list {
     list-style: none;
     display: flex;
     flex-direction: row;
     align-items: center;
+    @media only screen and (max-width: 786px) {
+      margin-top: 2rem;
+    }
   }
+
   &__item {
     margin-left: 1.5rem;
   }
+
   &__link {
     color: white;
     display: block;

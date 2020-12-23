@@ -1,35 +1,25 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'gatsby'
-import { useStaticQuery, graphql } from 'gatsby'
 //==========> CSS
 import './TheHeader.scss'
 
-const query = graphql`
-{
-  site {
-    siteMetadata {
-      title
-      description
-      data
-      person {
-        name
-      }
-    }
-  }
-}
-`
-
 const TheHeader = () => {
 
-    const { site: {siteMetadata: { title }}} = useStaticQuery(query)
+  const [ menuState, setMenuState ] = useState(false)
 
     return (
       <div className="header">
           <div className="header__container">
+            <div className="header__logotoggle">
               <Link to="/" className="header__logo">
                   The Great Gatsby
               </Link>
-              <nav className="header__navigation">
+              <div 
+                onClick={() => setMenuState(!menuState)} 
+                className={menuState ? `header__toggle header__toggle--active` : `header__toggle`}>
+                </div>
+            </div>
+              <nav className={menuState ? `header__navigation header__navigation--active` : `header__navigation`}>
                   <ul className="header__list">
                       <li className="header__item">
                           <Link to="/streams/new" className="header__link">

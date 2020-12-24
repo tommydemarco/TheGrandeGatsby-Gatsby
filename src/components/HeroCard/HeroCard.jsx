@@ -9,7 +9,8 @@ const HeroCard = ({ image, title, caption, className, children }) => {
         <figure className={classes}>
             <Img 
               fluid={image}
-              className="hero__image" />
+              className="hero__image" 
+            />
               <figcaption className="hero__description">
                 <h3 className="hero__title">{title}</h3>
                 <p className="hero__caption">
@@ -17,7 +18,6 @@ const HeroCard = ({ image, title, caption, className, children }) => {
                   Suscipit nihil quae nisi nostrum commodi! Voluptates qui 
                   possimus similique, temporibus ex reiciendis modi aliquam 
                   harum tempore tenetur iusto quis corrupti beatae?
-                  {caption}
                 </p>
                 {children}
               </figcaption>

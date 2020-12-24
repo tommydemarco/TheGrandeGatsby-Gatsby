@@ -11,7 +11,7 @@ const Layout = ({children, title, subtitle}) => {
            <TheHeader />
                 <div className="content">
                     {title && <h1 className="content__title">{title}</h1>}
-                    {title && <p className="content_subtitle">{subtitle}</p>}
+                    {subtitle && <p className="content_subtitle">{subtitle}</p>}
                     {children}
                 </div>
            <TheFooter />

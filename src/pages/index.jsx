@@ -1,14 +1,25 @@
 import React from 'react'
-import Layout from '../../layout'
-import { graphql } from "gatsby"
-import Img from "gatsby-image"
-import Button from '../../components/Button'
-import HeroCard from '../../components/ClassicCard'
+import Layout from '../layout'
+import { graphql, useStaticQuery } from "gatsby"
+import Button from '../components/Button'
+import HeroCard from '../components/HeroCard'
 
 import './index.scss'
 
-const HomePage = ({ data }) => {
+const query = graphql`
+  {
+    file(relativePath: { eq: "skyline2.jpg" }) {
+      childImageSharp {
+        fluid {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+  }
+`
 
+const HomePage = () => {
+  const data = useStaticQuery(query)
   return (
     <Layout 
       title='Welcome to the Great Gatsby' 
@@ -26,21 +37,5 @@ const HomePage = ({ data }) => {
     </Layout>
   )
 }
-
-const renderCards = () => {
-  return <ClassicCard />
-}
-
-export const query = graphql`
-  query {
-    file(relativePath: { eq: "skyline2.jpg" }) {
-      childImageSharp {
-        fluid {
-          ...GatsbyImageSharpFluid
-        }
-      }
-    }
-  }
-`
 
 export default HomePage

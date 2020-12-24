@@ -36,18 +36,18 @@ a {
   &__subtitle {
     display: block;
     font-size: 1.7rem;
-    padding-bottom: 1rem;
+    padding-bottom: 1.5rem;
     position: relative;
-    margin-bottom: 4rem;
 
     &::after {
       content: "";
-      width: 5rem;
+      width: 8rem;
       height: 2px;
       background-color: #2f3640;
       transform: translateX(-50%);
       position: absolute;
       bottom: 0;
+      left: 50%;
     }
   }
 }

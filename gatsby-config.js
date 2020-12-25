@@ -1,9 +1,9 @@
 module.exports = {
   siteMetadata: {
-    title: "The Great Gatsby Project",
+    title: "The Grande Gatsby Project",
     description: "My first project with Gatsby",
     data: ["object 1", "object 2"],
-    person: { name: "peter", surname: "burats" },
+    person: { name: "Tommy", surname: "Dema" },
   },
   /* Your site config here */
   plugins: [
@@ -17,6 +17,7 @@ module.exports = {
     },
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
+    `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-strapi`,
       options: {

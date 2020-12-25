@@ -4,6 +4,7 @@ import { graphql, useStaticQuery } from "gatsby"
 import PostCard from "../../components/PostCard"
 import { onlyUnique } from "../../js/helpers"
 import { useSpring, animated } from "react-spring"
+import SEO from "../../components/SEO"
 
 import "./blog.scss"
 
@@ -60,9 +61,13 @@ const BlogPage = () => {
 
   return (
     <Layout
-      title="Blog section of the Great Gatsby"
+      title="Blog section of The Grande Gatsby"
       subtitle="Welcome to our blog section, we hope our articles will inspire you"
     >
+      <SEO
+        title="Blog - The Grande Gatsby"
+        description="The blog page of The Grande Gatsby personal project"
+      />
       <section className="blog">
         <div className="blog__categories">
           {categories.map(singleCategory => {

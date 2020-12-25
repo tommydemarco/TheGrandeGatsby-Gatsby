@@ -13,7 +13,7 @@ const TheHeader = () => {
       <div className="header__container">
         <div className="header__logotoggle">
           <Link to="/" className="header__logo">
-            The Great Gatsby
+            The Grande Gatsby
           </Link>
           <div
             onClick={() => setMenuState(!menuState)}

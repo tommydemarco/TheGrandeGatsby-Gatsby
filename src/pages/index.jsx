@@ -4,6 +4,7 @@ import { graphql, useStaticQuery } from "gatsby"
 import Button from "../components/Button"
 import HeroCard from "../components/HeroCard"
 import Hero from "../components/Hero"
+import SEO from "../components/SEO"
 
 import "./index.scss"
 
@@ -30,15 +31,19 @@ const HomePage = () => {
   const data = useStaticQuery(query)
   return (
     <Layout
-      title="Welcome to the Great Gatsby"
+      title="Welcome to The Grande Gatsby"
       subtitle="We have our roots all aroud the world, descover the place cosest to you"
       hero={
         <Hero
           image={data.file.childImageSharp.fluid}
-          text="Welcome to the great gatsby"
+          text="Welcome to The Grande Gatsby"
         />
       }
     >
+      <SEO
+        title="Home - The Grande Gatsby"
+        description="The home page of The Grande Gatsby personal project"
+      />
       <section className="home">
         <HeroCard
           image={data.boxImage.childImageSharp.fluid}

@@ -57,7 +57,7 @@ const HomePage = () => {
           title="Let us take you places"
           caption={null}
         >
-          <Button additionalClass="hero__button" to="/products">
+          <Button additionalClass="hero__button" to="/services">
             Discover more
           </Button>
         </HeroCard>

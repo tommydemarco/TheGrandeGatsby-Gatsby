@@ -1,0 +1,61 @@
+.serviceCard {
+  display: flex;
+  background-color: #dfe6e9;
+  height: 300px;
+  &:not(:first-child) {
+    margin-top: 4rem;
+  }
+
+  &__image-container {
+    width: 40%;
+    position: relative;
+  }
+
+  &__image {
+    width: 100%;
+    height: 100%;
+  }
+
+  &__content {
+    flex: 1;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    position: relative;
+  }
+
+  &__title {
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+  }
+
+  &__attribute {
+    position: absolute;
+    top: 1.5rem;
+    left: 1.5rem;
+    padding: 0.8rem;
+    text-transform: uppercase;
+    border: 2px solid black;
+    z-index: 1;
+    background-color: #dfe6e9;
+  }
+
+  &__description {
+    margin-bottom: 2rem;
+  }
+
+  &__button {
+    margin-top: auto;
+    background-color: #2f3640;
+
+    &:hover {
+      background-color: lighten(#353b48, 10%);
+    }
+
+    &:active,
+    &:focus {
+      background-color: lighten(#353b48, 10%);
+    }
+  }
+}

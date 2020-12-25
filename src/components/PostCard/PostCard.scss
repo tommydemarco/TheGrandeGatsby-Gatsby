@@ -1,0 +1,53 @@
+.postcard {
+  width: 45%;
+  max-width: 50rem;
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  background-color: #dfe6e9;
+  align-self: flex-start;
+
+  &__image {
+    height: 27rem;
+    width: 100%;
+  }
+
+  &__description {
+    padding: 2rem;
+  }
+
+  &__title {
+    margin-bottom: 1.5rem;
+  }
+
+  &__subtitle {
+    margin-bottom: 2rem;
+    font-size: 1.8rem;
+  }
+
+  &__preview {
+    margin-bottom: 2rem;
+  }
+
+  &__footer {
+    background-color: #353b48;
+    transition: all 0.4s;
+    padding: 2rem;
+    align-self: stretch;
+  }
+
+  &:hover {
+    .postcard__footer {
+      background-color: lighten(#353b48, 10%);
+    }
+  }
+
+  &__link {
+    padding: 10px 20px;
+    background-color: white;
+    display: block;
+    width: fit-content;
+  }
+}

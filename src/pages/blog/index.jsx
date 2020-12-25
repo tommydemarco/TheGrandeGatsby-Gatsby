@@ -20,7 +20,6 @@ export const query = graphql`
         id
         in_home
         image_text
-        published_at
         subtitle
         title
         pretty_url
@@ -70,7 +69,7 @@ const BlogPage = () => {
             return (
               <span
                 className={
-                  singleCategory == activeCategory
+                  singleCategory === activeCategory
                     ? "blog__category blog__category--active"
                     : "blog__category"
                 }

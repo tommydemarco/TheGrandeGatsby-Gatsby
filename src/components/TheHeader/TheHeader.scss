@@ -120,6 +120,7 @@
     display: block;
     backface-visibility: hidden;
     transition: all 0.3s ease-in-out;
+    text-transform: capitalize;
     &:hover {
       color: #ced6e0;
     }

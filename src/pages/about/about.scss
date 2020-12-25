@@ -1,0 +1,14 @@
+.about {
+  display: flex;
+  justify-content: space-between;
+
+  &__image {
+    width: 45%;
+    flex-shrink: 0;
+    margin-right: 3rem;
+  }
+
+  &__description {
+    flex: 1;
+  }
+}

@@ -28,7 +28,6 @@ const query = graphql`
 
 const HomePage = () => {
   const data = useStaticQuery(query)
-  console.log(data)
   return (
     <Layout
       title="Welcome to the Great Gatsby"

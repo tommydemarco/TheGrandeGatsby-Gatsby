@@ -38,8 +38,8 @@ const TheHeader = () => {
               </Link>
             </li>
             <li className="header__item">
-              <Link to="/streams/list" className="header__link">
-                Streams List
+              <Link to="/about" className="header__link">
+                about
               </Link>
             </li>
             <li className="header__item">

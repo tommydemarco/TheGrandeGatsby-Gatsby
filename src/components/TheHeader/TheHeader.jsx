@@ -44,7 +44,7 @@ const TheHeader = () => {
             </li>
             <li className="header__item">
               <Button additionalClass="header__button" to="/login">
-                Login
+                <i className="fa fa-user"></i> Login
               </Button>
             </li>
           </ul>

@@ -5,15 +5,10 @@ import Layout from "../../layout"
 import Hero from "../../components/Hero"
 import SEO from "../../components/SEO"
 
+import "./BlogPost.scss"
+
 const BlogPost = ({ data }) => {
-  const {
-    title,
-    subtitle,
-    image,
-    image_text,
-    category,
-    description,
-  } = data.post
+  const { title, subtitle, image, image_text, description } = data.post
   return (
     <Layout
       title={title}
@@ -27,9 +22,7 @@ const BlogPost = ({ data }) => {
         }
       />
       <div className="blogPage">
-        <div className="blogPage__content">
-          <ReactMarkdown source={description}></ReactMarkdown>
-        </div>
+        <ReactMarkdown source={description}></ReactMarkdown>
       </div>
     </Layout>
   )

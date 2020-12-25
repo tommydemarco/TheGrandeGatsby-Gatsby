@@ -12,12 +12,19 @@ const query = graphql`
   {
     boxImage: file(relativePath: { eq: "skyline2.jpg" }) {
       childImageSharp {
-        fluid {
+        fluid(maxWidth: 1800) {
           ...GatsbyImageSharpFluid
         }
       }
     }
     file(relativePath: { eq: "skyline-hero.jpg" }) {
+      childImageSharp {
+        fluid(maxWidth: 3000, grayscale: true) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    blogImage: file(relativePath: { eq: "home-blog.jpg" }) {
       childImageSharp {
         fluid(maxWidth: 2000, grayscale: true) {
           ...GatsbyImageSharpFluid
@@ -31,7 +38,7 @@ const HomePage = () => {
   const data = useStaticQuery(query)
   return (
     <Layout
-      title="Welcome to The Grande Gatsby"
+      title="Endless possibilities with The Grande Gatsby"
       subtitle="We have our roots all aroud the world, descover the place cosest to you"
       hero={
         <Hero
@@ -51,7 +58,16 @@ const HomePage = () => {
           caption={null}
         >
           <Button additionalClass="hero__button" to="/products">
-            DIscover more
+            Discover more
+          </Button>
+        </HeroCard>
+        <HeroCard
+          image={data.blogImage.childImageSharp.fluid}
+          title="Inspiring articles in our blog"
+          caption={null}
+        >
+          <Button additionalClass="hero__button" to="/blog">
+            Browse the articles
           </Button>
         </HeroCard>
       </section>

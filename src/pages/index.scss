@@ -1,7 +1,7 @@
 .home {
   width: 100%;
   min-height: 50vh;
-  margin-top: 4rem;
+  margin-top: 1rem;
   display: flex;
   flex-direction: column;
 }
@@ -16,6 +16,10 @@
   align-items: flex-start;
   background-color: #dfe6e9;
 
+  &:not(:first-child) {
+    margin-top: 4rem;
+  }
+
   &__image {
     height: 300px;
     width: 100%;
@@ -27,6 +31,7 @@
 
   &__title {
     margin-bottom: 1.5rem;
+    margin-top: 0;
   }
 
   &__caption {
@@ -35,7 +40,13 @@
 
   &__button {
     background-color: #2f3640;
+
     &:hover {
+      background-color: lighten(#353b48, 10%);
+    }
+
+    &:active,
+    &:focus {
       background-color: lighten(#353b48, 10%);
     }
   }

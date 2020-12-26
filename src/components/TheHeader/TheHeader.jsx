@@ -8,6 +8,8 @@ import "./TheHeader.scss"
 const TheHeader = () => {
   const [menuState, setMenuState] = useState(false)
 
+  const activeStyle = { color: "#ced6e0" }
+
   return (
     <div className="header">
       <div className="header__container">
@@ -33,13 +35,30 @@ const TheHeader = () => {
         >
           <ul className="header__list">
             <li className="header__item">
-              <Link to="/blog" className="header__link">
+              <Link
+                to="/blog"
+                className="header__link"
+                activeStyle={activeStyle}
+              >
                 Blog
               </Link>
             </li>
             <li className="header__item">
-              <Link to="/about" className="header__link">
+              <Link
+                to="/about"
+                className="header__link"
+                activeStyle={activeStyle}
+              >
                 about
+              </Link>
+            </li>
+            <li className="header__item">
+              <Link
+                to="/services"
+                className="header__link"
+                activeStyle={activeStyle}
+              >
+                Services
               </Link>
             </li>
             <li className="header__item">

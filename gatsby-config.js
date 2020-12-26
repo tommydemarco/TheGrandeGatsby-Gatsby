@@ -1,5 +1,6 @@
 module.exports = {
   siteMetadata: {
+    siteUrl: "http://testurl.it.it.it",
     title: "The Grande Gatsby Project",
     description: "My first project with Gatsby",
     data: ["object 1", "object 2"],

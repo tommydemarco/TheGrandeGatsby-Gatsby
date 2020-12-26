@@ -67,13 +67,13 @@ export default function TheFooter() {
               <ul className="footer__list">
                 <li className="footer__listitem">
                   <i className="fa fa-chevron-right"></i>
-                  <Link href="/" className="footer__link">
+                  <Link to="/privacy" className="footer__link">
                     Privacy Policy
                   </Link>
                 </li>
                 <li className="footer__listitem">
                   <i className="fa fa-chevron-right"></i>
-                  <Link href="/" className="footer__link">
+                  <Link to="/privacy/cookies" className="footer__link">
                     Cookies Policy
                   </Link>
                 </li>

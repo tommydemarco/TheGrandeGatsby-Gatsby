@@ -1,0 +1,15 @@
+.notfound__button {
+  background-color: #2f3640;
+  display: block;
+  width: fit-content;
+  margin: 0 auto;
+
+  &:hover {
+    background-color: lighten(#353b48, 10%);
+  }
+
+  &:active,
+  &:focus {
+    background-color: lighten(#353b48, 10%);
+  }
+}

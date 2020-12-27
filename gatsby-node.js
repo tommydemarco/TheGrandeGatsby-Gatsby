@@ -2,7 +2,7 @@ const path = require("path")
 
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
-  const result = await graphql(`
+  const blogResult = await graphql(`
     {
       posts: allStrapiPosts {
         nodes {
@@ -11,13 +11,31 @@ exports.createPages = async ({ graphql, actions }) => {
       }
     }
   `)
+  const servicesResult = await graphql(`
+    {
+      services: allStrapiServices {
+        nodes {
+          pretty_url
+        }
+      }
+    }
+  `)
 
-  result.data.posts.nodes.forEach(post => {
+  blogResult.data.posts.nodes.forEach(post => {
     createPage({
-      path: "/blog/" + post.pretty_url,
+      path: `blog/${post.pretty_url}`,
       component: path.resolve("src/templates/BlogPost/BlogPost.jsx"),
       context: {
-        sulg: post.pretty_url,
+        slug: post.pretty_url,
+      },
+    })
+  })
+  servicesResult.data.services.nodes.forEach(service => {
+    createPage({
+      path: `services/${service.pretty_url}`,
+      component: path.resolve("src/templates/ServicePost/ServicePost.jsx"),
+      context: {
+        slug: service.pretty_url,
       },
     })
   })

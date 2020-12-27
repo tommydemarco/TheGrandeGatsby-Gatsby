@@ -5,7 +5,7 @@ import Button from "../Button"
 
 import "./ServiceCard.scss"
 
-const ServiceCard = ({ image, title, description, attribute, url }) => {
+const ServiceCard = ({ image, title, description, attribute, pretty_url }) => {
   return (
     <article className="serviceCard">
       <div className="serviceCard__image-container">
@@ -23,7 +23,10 @@ const ServiceCard = ({ image, title, description, attribute, url }) => {
             source={description.slice(0, 640) + "..."}
           ></ReactMarkdown>
         </p>
-        <Button additionalClass="serviceCard__button" to={"services/" + url}>
+        <Button
+          additionalClass="serviceCard__button"
+          to={"/services/" + pretty_url}
+        >
           Go to service
         </Button>
       </div>

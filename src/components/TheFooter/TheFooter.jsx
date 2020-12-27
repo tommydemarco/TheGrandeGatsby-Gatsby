@@ -1,7 +1,6 @@
 import React from "react"
 import { Link } from "gatsby"
 import LowerFooter from "../LowerFooter"
-import StaticFooter from "../StaticFooter"
 
 import "./TheFooter.scss"
 
@@ -90,7 +89,6 @@ export default function TheFooter() {
         </div>
       </footer>
       <LowerFooter />
-      <StaticFooter />
     </>
   )
 }

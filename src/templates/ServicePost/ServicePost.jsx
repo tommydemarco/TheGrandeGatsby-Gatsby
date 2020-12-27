@@ -5,7 +5,7 @@ import Layout from "../../layout"
 import Hero from "../../components/Hero"
 import SEO from "../../components/SEO"
 
-import "./BlogPost.scss"
+import "./ServicePost.scss"
 
 const BlogPost = props => {
   console.log(props)
@@ -15,17 +15,13 @@ const BlogPost = props => {
     image,
     image_text,
     description,
-  } = props.data.strapiPosts
+  } = props.data.strapiServices
   return (
-    <Layout
-      title={title}
-      subtitle={subtitle}
-      hero={<Hero image={image.childImageSharp.fluid} text={image_text} dark />}
-    >
+    <Layout hero={<Hero image={image.childImageSharp.fluid} text={title} />}>
       <SEO
         title={title.toUpperCase() + " - The Grande Gatsby"}
         description={
-          title + "- post page of The Grande Gatsby personal project"
+          title + "- service page of The Grande Gatsby personal project"
         }
       />
       <div className="blogPage">
@@ -36,10 +32,9 @@ const BlogPost = props => {
 }
 
 export const query = graphql`
-  query getSinglePost($slug: String) {
-    strapiPosts(pretty_url: { eq: $slug }) {
+  query getSingleService($slug: String) {
+    strapiServices(pretty_url: { eq: $slug }) {
       title
-      subtitle
       image {
         childImageSharp {
           fluid(grayscale: true) {
@@ -47,9 +42,7 @@ export const query = graphql`
           }
         }
       }
-      image_text
       description
-      category
     }
   }
 `

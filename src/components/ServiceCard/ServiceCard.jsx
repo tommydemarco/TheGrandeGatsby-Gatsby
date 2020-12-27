@@ -7,7 +7,7 @@ import "./ServiceCard.scss"
 
 const ServiceCard = ({ image, title, description, attribute, url }) => {
   return (
-    <article class="serviceCard">
+    <article className="serviceCard">
       <div className="serviceCard__image-container">
         <span className="serviceCard__attribute">{attribute}</span>
         <Img

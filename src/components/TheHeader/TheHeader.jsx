@@ -7,7 +7,7 @@ import "./TheHeader.scss"
 
 const TheHeader = () => {
   const [menuState, setMenuState] = useState(false)
-  const [subLinksVisible, setSubLinksVisible] = useState(false)
+  //const [subLinksVisible, setSubLinksVisible] = useState(false)
 
   const activeStyle = { color: "#ced6e0" }
 
@@ -54,19 +54,19 @@ const TheHeader = () => {
               </Link>
             </li>
             <li className="header__item">
-              <span
-                to="/about"
+              <Link
+                to="/features"
                 className="header__link"
                 activeStyle={activeStyle}
-                onMouseOver={() => setSubLinksVisible(true)}
-                onMouseLeave={() => setSubLinksVisible(false)}
+                //onMouseOver={() => setSubLinksVisible(true)}
+                //onMouseLeave={() => setSubLinksVisible(false)}
               >
                 Features
-              </span>
-              <SubLinks
+              </Link>
+              {/* <SubLinks
                 status={subLinksVisible}
                 setStatus={setSubLinksVisible}
-              ></SubLinks>
+              ></SubLinks> */}
             </li>
             <li className="header__item">
               <Link
@@ -78,9 +78,12 @@ const TheHeader = () => {
               </Link>
             </li>
             <li className="header__item">
-              <Button additionalClass="header__button" to="/login">
-                <i className="fa fa-user"></i> Login
-              </Button>
+              <a
+                className="header__button"
+                href="https://github.com/tommydemarco/TheGreatGatsby-Gatsby"
+              >
+                <i className="fa fa-github"></i>
+              </a>
             </li>
           </ul>
         </nav>
@@ -89,29 +92,29 @@ const TheHeader = () => {
   )
 }
 
-const SubLinks = ({ status, setStatus }) => {
-  const activeClass = status ? " active" : ""
+// const SubLinks = ({ status, setStatus }) => {
+//   const activeClass = status ? " active" : ""
 
-  return (
-    <div
-      onMouseOver={() => setStatus(true)}
-      onMouseLeave={() => setStatus(false)}
-      className={"sublinks" + activeClass}
-    >
-      <ul className="sublinks__list">
-        <li className="sublinks__item">
-          <Link to="/features/basic" className="sublinks__link">
-            about
-          </Link>
-        </li>
-        <li className="sublinks__item">
-          <Link to="/features/premium" className="sublinks__link">
-            about
-          </Link>
-        </li>
-      </ul>
-    </div>
-  )
-}
+//   return (
+//     <div
+//       onMouseOver={() => setStatus(true)}
+//       onMouseLeave={() => setStatus(false)}
+//       className={"sublinks" + activeClass}
+//     >
+//       <ul className="sublinks__list">
+//         <li className="sublinks__item">
+//           <Link to="/features/basic" className="sublinks__link">
+//             about
+//           </Link>
+//         </li>
+//         <li className="sublinks__item">
+//           <Link to="/features/premium" className="sublinks__link">
+//             about
+//           </Link>
+//         </li>
+//       </ul>
+//     </div>
+//   )
+// }
 
 export default TheHeader

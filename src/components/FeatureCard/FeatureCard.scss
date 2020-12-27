@@ -8,11 +8,14 @@
   background-color: #2f3640;
   border: 3px solid #7f8fa6;
   text-align: left;
+  margin-bottom: 2rem;
+  margin-top: 1rem;
 
   &__icon {
     font-size: 4rem !important;
     color: white;
     display: block;
+    padding-left: 2rem;
     &--premium {
       font-size: 3.5rem !important;
       color: #2f3640;
@@ -21,7 +24,7 @@
       border-radius: 50px;
       border: 3px solid #2f3640;
       position: absolute;
-      transform: translate(30%, -20%);
+      transform: translate(20%, -20%);
       top: 0;
       right: 0;
     }

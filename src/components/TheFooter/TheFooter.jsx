@@ -16,49 +16,30 @@ export default function TheFooter() {
               <p className="footer__description">
                 Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ex
                 labore atque, modi, incidunt ea odio voluptas quod voluptatem,
-                eum iusto dolores vero autem.
+                eum iusto dolores vero autem. <br />
+                Incidunt ea odio voluptas quod voluptatem.
               </p>
-              <div className="footer__social">
-                <Link to="/" className="footer__social-link">
-                  <i className="fa fa-facebook"></i>
-                </Link>
-                <Link to="/" className="footer__social-link">
-                  <i className="fa fa-facebook"></i>
-                </Link>
-                <Link to="/" className="footer__social-link">
-                  <i className="fa fa-facebook"></i>
-                </Link>
-                <Link to="/" className="footer__social-link">
-                  <i className="fa fa-facebook"></i>
-                </Link>
-              </div>
             </div>
             <div className="footer__single">
-              <h4 className="footer__title">main menu</h4>
+              <h4 className="footer__title">technoligies</h4>
               <ul className="footer__list">
                 <li className="footer__listitem">
                   <i className="fa fa-chevron-right"></i>
-                  <Link href="/" className="footer__link">
-                    link
-                  </Link>
+                  <a href="https://www.gatsbyjs.com/" className="footer__link">
+                    Gatsby JS
+                  </a>
                 </li>
                 <li className="footer__listitem">
                   <i className="fa fa-chevron-right"></i>
-                  <Link href="/" className="footer__link">
-                    link
-                  </Link>
+                  <a href="https://reactjs.org/" className="footer__link">
+                    React JS
+                  </a>
                 </li>
                 <li className="footer__listitem">
                   <i className="fa fa-chevron-right"></i>
-                  <Link href="/" className="footer__link">
-                    link
-                  </Link>
-                </li>
-                <li className="footer__listitem">
-                  <i className="fa fa-chevron-right"></i>
-                  <Link href="/" className="footer__link">
-                    link
-                  </Link>
+                  <a href="https://graphql.org/" className="footer__link">
+                    Graphql
+                  </a>
                 </li>
               </ul>
             </div>
@@ -80,25 +61,28 @@ export default function TheFooter() {
               </ul>
             </div>
             <div className="footer__single">
-              <h4 className="footer__title">contact us</h4>
+              <h4 className="footer__title">links</h4>
               <ul className="footer__list">
                 <li className="footer__listitem">
                   <i className="fa fa-chevron-right"></i>
-                  <Link href="/" className="footer__link">
-                    link
-                  </Link>
+                  <a
+                    href="https://github.com/tommydemarco/TheGreatGatsby-Gatsby"
+                    className="footer__link"
+                  >
+                    Github repo
+                  </a>
                 </li>
                 <li className="footer__listitem">
                   <i className="fa fa-chevron-right"></i>
-                  <Link href="/" className="footer__link">
-                    link
-                  </Link>
+                  <a href="https://strapi.io/" className="footer__link">
+                    Strapi backend
+                  </a>
                 </li>
                 <li className="footer__listitem">
                   <i className="fa fa-chevron-right"></i>
-                  <Link href="/" className="footer__link">
-                    link
-                  </Link>
+                  <a href="https://www.pexels.com/" className="footer__link">
+                    Pexels
+                  </a>
                 </li>
               </ul>
             </div>

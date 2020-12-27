@@ -15,7 +15,7 @@
     align-items: flex-start;
     justify-content: space-between;
     flex-wrap: wrap;
-    margin-top: 3rem;
+    margin-top: 0rem;
     padding: 2rem;
   }
   &__single {
@@ -85,7 +85,7 @@
   }
 }
 
-@media only screen and (max-width: 786px) {
+@media only screen and (max-width: 920px) {
   .footer {
     &__main {
       justify-content: flex-start;

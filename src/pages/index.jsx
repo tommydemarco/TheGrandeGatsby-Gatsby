@@ -1,6 +1,7 @@
-import React from "react"
-import Layout from "../layout"
+import React, { useContext } from "react"
 import { graphql, useStaticQuery } from "gatsby"
+
+import Layout from "../layout"
 import Button from "../components/Button"
 import HeroCard from "../components/HeroCard"
 import Hero from "../components/Hero"
@@ -36,6 +37,7 @@ const query = graphql`
 
 const HomePage = () => {
   const data = useStaticQuery(query)
+
   return (
     <Layout
       title="Endless possibilities with The Grande Gatsby"

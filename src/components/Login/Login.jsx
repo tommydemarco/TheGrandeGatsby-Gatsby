@@ -1,15 +1,15 @@
-import React, { useState } from "react"
-import { graphql } from "gatsby"
-import Image from "gatsby-image"
-//=======> LAYOUT
+import React, { useState, useContext } from "react"
+import { graphql, useStaticQuery } from "gatsby"
 import Layout from "../../layout"
-import SEO from "../../components/SEO"
-import Button from "../../components/Button"
+import SEO from "../SEO"
+import Button from "../Button"
+import Image from "gatsby-image"
+import { userContext } from "../../context/context"
 
-import "./login.scss"
+const Login = ({ page }) => {
+  const { loginImage } = useStaticQuery(query)
 
-const LoginPage = ({ data }) => {
-  const { loginImage } = data
+  const { state, dispatch } = useContext(userContext)
 
   const [credentials, setCredentials] = useState({
     username: "",
@@ -42,12 +42,17 @@ const LoginPage = ({ data }) => {
       }
     }
     console.log(responseData)
+
+    dispatch({
+      type: "LOGIN",
+      payload: { user: credentials.username, jwt: responseData },
+    })
   }
 
   return (
     <Layout
-      title="Howdy, user!"
-      subtitle="Lock back in to access exclusive content"
+      title="Sorry, authentication required"
+      subtitle={"You need to be logged in to visit the " + page + "page"}
     >
       <SEO
         title="Login - The Grande Gatsby"
@@ -98,7 +103,7 @@ const LoginPage = ({ data }) => {
   )
 }
 
-export const query = graphql`
+const query = graphql`
   {
     loginImage: file(relativePath: { eq: "login-image.jpg" }) {
       childImageSharp {
@@ -110,4 +115,8 @@ export const query = graphql`
   }
 `
 
-export default LoginPage
+Login.defaultProps = {
+  page: "",
+}
+
+export default Login

@@ -1,10 +1,12 @@
-import React, { useState, useEffect } from "react"
+import React, { useState, useEffect, useContext } from "react"
 import Layout from "../../layout"
 import { graphql, useStaticQuery } from "gatsby"
 import ServiceCard from "../../components/ServiceCard"
 import { onlyUnique } from "../../js/helpers"
 import { useSpring, animated } from "react-spring"
 import SEO from "../../components/SEO"
+import { userContext } from "../../context/context"
+import Login from "../../components/Login"
 
 import "./services.scss"
 
@@ -37,6 +39,8 @@ export const query = graphql`
 const ServicesPage = () => {
   const data = useStaticQuery(query)
 
+  const { state } = useContext(userContext)
+
   const totalPages = data.allStrapiServices.nodes
     .map((value, index) => index % 2)
     .filter(onlyUnique)
@@ -54,6 +58,10 @@ const ServicesPage = () => {
       setPage(pageNumber)
       setToggle(true)
     }, 400)
+  }
+
+  if (state.user === null) {
+    return <Login />
   }
 
   return (

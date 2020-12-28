@@ -8,7 +8,6 @@ import SEO from "../../components/SEO"
 import "./BlogPost.scss"
 
 const BlogPost = props => {
-  console.log(props)
   const {
     title,
     subtitle,

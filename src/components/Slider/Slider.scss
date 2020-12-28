@@ -1,23 +1,84 @@
-.introHero {
+.introSlider {
   position: relative;
   width: 100%;
   background-color: #2f3640;
+
+  &__container {
+    position: relative;
+    width: 100%;
+  }
+
+  &__fast-image {
+    width: 100%;
+    display: block;
+    max-height: 30rem;
+    opacity: 0.6;
+    position: absolute !important;
+    top: 0;
+    filter: blur(2px);
+  }
+
   &__image {
     width: 100%;
     display: block;
     max-height: 30rem;
-    opacity: 0.7;
+    opacity: 0.55;
+    filter: blur(2px);
+    position: absolute;
+    top: 0;
+    z-index: 5;
   }
+
   &__text {
     text-transform: uppercase;
-    font-size: 5rem;
+    font-size: 4.7rem;
     color: white;
     font-weight: bolder;
     position: absolute;
     transform: translate(-50%, -50%);
     top: 50%;
     left: 50%;
-    width: 80%;
+    width: fit-content;
+    max-width: 75%;
     text-align: center;
+    z-index: 10;
+    @media only screen and (max-width: 700px) {
+      font-size: 3.5rem;
+    }
+  }
+
+  &__arrow {
+    position: absolute;
+    font-size: 3rem !important;
+    transform: translateY(-50%);
+    top: 50%;
+    z-index: 999;
+    color: white;
+    transition: all 0.4s;
+    display: block;
+    cursor: pointer;
+    &:hover {
+      font-size: 3.5rem !important;
+    }
+
+    &--left {
+      left: 6.5rem;
+      @media only screen and (max-width: 700px) {
+        left: 4rem;
+      }
+      @media only screen and (max-width: 400px) {
+        left: 2rem;
+      }
+    }
+
+    &--right {
+      right: 6.5rem;
+      @media only screen and (max-width: 700px) {
+        right: 4rem;
+      }
+      @media only screen and (max-width: 400px) {
+        right: 2rem;
+      }
+    }
   }
 }

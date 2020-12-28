@@ -5,6 +5,7 @@ import PostCard from "../../components/PostCard"
 import { onlyUnique } from "../../js/helpers"
 import { useSpring, animated } from "react-spring"
 import SEO from "../../components/SEO"
+import Survey from "../../components/Survey"
 
 import "./blog.scss"
 
@@ -93,6 +94,7 @@ const BlogPage = () => {
           {renderBlogPosts(data.allStrapiPosts.nodes, category)}
         </animated.div>
       </section>
+      <Survey />
     </Layout>
   )
 }

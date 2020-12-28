@@ -9,7 +9,6 @@ import SEO from "../../components/SEO"
 import "./about.scss"
 
 const AboutPage = ({ data }) => {
-  console.log(data.about)
   const { title, subtitle, description, image } = data.about.nodes[0]
   return (
     <Layout title={title} subtitle={subtitle}>

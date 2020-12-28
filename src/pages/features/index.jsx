@@ -5,6 +5,7 @@ import { graphql } from "gatsby"
 import { onlyUnique } from "../../js/helpers"
 import { useSpring, animated } from "react-spring"
 
+import Slider from "../../components/Slider"
 import FeatureCard from "../../components/FeatureCard"
 
 import "./features.scss"
@@ -38,8 +39,9 @@ const BasicFeatures = ({ data }) => {
 
   return (
     <Layout
-      title="Our basic features"
+      title="Our features for a globalized world"
       subtitle="Our basic feature don't look that basic after all, do they?"
+      hero={<Slider images={data.allStrapiSliders.nodes} />}
     >
       <SEO
         title="Basic features - The Grande Gatsby"
@@ -109,6 +111,19 @@ export const query = graphql`
         id
         icon
         title
+      }
+    }
+    allStrapiSliders {
+      nodes {
+        id
+        image {
+          childImageSharp {
+            fluid(grayscale: true, maxWidth: 1800) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
+        image_text
       }
     }
   }

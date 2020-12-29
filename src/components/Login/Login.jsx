@@ -2,7 +2,7 @@ import React, { useState, useContext } from "react"
 import { graphql, useStaticQuery } from "gatsby"
 import { userContext } from "../../context/context"
 import { connect } from "react-redux"
-import { loggedIn } from "../../redux/login/login-actions"
+import { loggedIn, logInFailed } from "../../redux/login/login-actions"
 
 import Layout from "../../layout"
 import SEO from "../SEO"

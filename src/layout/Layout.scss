@@ -65,15 +65,12 @@ strong {
 }
 
 .toast-stack {
-  display: flex;
   padding: 2rem;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: stretch;
   position: fixed;
   top: 0;
   width: 45rem;
   right: 6rem;
   height: 100%;
   z-index: 9999;
+  pointer-events: none;
 }

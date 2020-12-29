@@ -1,10 +1,13 @@
 import React, { useState, useContext } from "react"
 import { graphql, useStaticQuery } from "gatsby"
+import { userContext } from "../../context/context"
+import { connect } from "react-redux"
+import { loggedIn } from "../../redux/login/login-actions"
+
 import Layout from "../../layout"
 import SEO from "../SEO"
 import Button from "../Button"
 import Image from "gatsby-image"
-import { userContext } from "../../context/context"
 
 const Login = ({ page }) => {
   const { loginImage } = useStaticQuery(query)
@@ -119,4 +122,11 @@ Login.defaultProps = {
   page: "",
 }
 
-export default Login
+const mapDispatchToProps = dispatch => {
+  return {
+    loggedIn: userObject => dispatch(loggedIn(userObject)),
+    logInFailed: () => dispatch(logInFailed),
+  }
+}
+
+export default connect(null, mapDispatchToProps)(Login)

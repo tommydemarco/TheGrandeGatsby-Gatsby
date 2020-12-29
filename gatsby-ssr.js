@@ -1,14 +1,3 @@
-import React from "react"
+import { rootElement } from "./root-element"
 
-import TheHeader from "./src/components/TheHeader"
-
-import "./static/global.scss"
-
-export const wrapRootElement = ({ element }) => {
-  return (
-    <>
-      <TheHeader />
-      {element}
-    </>
-  )
-}
+export const wrapRootElement = rootElement

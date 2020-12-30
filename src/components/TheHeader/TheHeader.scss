@@ -12,6 +12,8 @@
   top: 0;
   right: 0;
   left: 0;
+  height: 95px;
+  transition: all 0.4s;
 
   &__logotoggle {
     display: flex;
@@ -94,8 +96,17 @@
     color: white;
     font-size: 4rem;
     transition: all 0.3s ease-in-out;
+
     &:hover {
       color: #ced6e0;
+    }
+  }
+
+  &.compressed {
+    height: 65px;
+
+    & .header__logo {
+      font-size: 3rem;
     }
   }
 

@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import { Link } from "gatsby"
 
 import Button from "../Button"
@@ -9,10 +9,43 @@ const TheHeader = () => {
   const [menuState, setMenuState] = useState(false)
   //const [subLinksVisible, setSubLinksVisible] = useState(false)
 
+  const [isScrollingDown, setIsScrollingDown] = useState(false)
+
+  useEffect(() => {
+    const threshold = 0
+    const lastScrollY = window.pageYOffset
+    let flag = false
+
+    const updateScrollDir = () => {
+      console.log("Hi from the useEffect")
+      const scrollY = window.pageYOffset
+      if (Math.abs(scrollY - lastScrollY) < threshold) {
+        flag = false
+        return
+      }
+      setIsScrollingDown(
+        scrollY > lastScrollY && lastScrollY > 60 ? true : false
+      )
+      flag = false
+    }
+
+    const handleScroll = () => {
+      if (!flag) {
+        window.requestAnimationFrame(updateScrollDir)
+        flag = true
+      }
+    }
+
+    window.addEventListener("scroll", handleScroll, { passive: true })
+
+    return () => window.removeEventListener("scroll", handleScroll)
+  }, [isScrollingDown])
+
   const activeStyle = { color: "#ced6e0" }
+  console.log(isScrollingDown)
 
   return (
-    <div className="header">
+    <div className={isScrollingDown ? "header compressed" : "header"}>
       <div className="header__container">
         <div className="header__logotoggle">
           <Link to="/" className="header__logo">

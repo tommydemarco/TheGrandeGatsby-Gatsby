@@ -9,7 +9,7 @@ import SEO from "../SEO"
 import Button from "../Button"
 import Image from "gatsby-image"
 
-const Login = ({ page }) => {
+const Login = ({ page, loggedIn, logInFailed }) => {
   const { loginImage } = useStaticQuery(query)
 
   const { state, dispatch } = useContext(userContext)
@@ -36,20 +36,15 @@ const Login = ({ page }) => {
     const responseData = await response.json()
 
     if (!response.ok) {
-      if (response.status == 401) {
-        const unauthErr = new Error("Wrong username or password")
-        throw unauthErr
-      } else {
-        const LoginError = new Error("Could not login at the moment.")
-        throw LoginError
-      }
+      logInFailed()
+      return
     }
-    console.log(responseData)
 
     dispatch({
       type: "LOGIN",
       payload: { user: credentials.username, jwt: responseData },
     })
+    loggedIn(credentials.username)
   }
 
   return (
@@ -124,8 +119,8 @@ Login.defaultProps = {
 
 const mapDispatchToProps = dispatch => {
   return {
-    loggedIn: userObject => dispatch(loggedIn(userObject)),
-    logInFailed: () => dispatch(logInFailed),
+    loggedIn: userName => dispatch(loggedIn(userName)),
+    logInFailed: () => dispatch(logInFailed()),
   }
 }
 

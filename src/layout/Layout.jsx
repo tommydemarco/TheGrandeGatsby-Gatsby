@@ -1,12 +1,14 @@
 import React from "react"
 import { Helmet } from "react-helmet"
+import { connect } from "react-redux"
+import { removeLoginMessage } from "../redux/login/login-actions"
 //========> COMPONENTS
 import TheFooter from "../components/TheFooter"
 import ToastMessage from "../components/ToastMessage"
 //=======> CSS
 import "./Layout.scss"
 
-const Layout = ({ children, title, subtitle, hero }) => {
+const Layout = ({ children, title, subtitle, hero, loginMessages }) => {
   return (
     <>
       <Helmet>
@@ -19,22 +21,27 @@ const Layout = ({ children, title, subtitle, hero }) => {
           {subtitle && <p className="content__subtitle">{subtitle}</p>}
           {children}
         </div>
-        <div className="toast-stack">
-          <ToastMessage
-            title="The first toast"
-            message="The message of the toast, great"
-            type="success"
-          />
-          <ToastMessage
-            title="The first toast"
-            message="The message of the toast, great"
-            type="success"
-          />
-        </div>
+        {loginMessages && (
+          <div className="toast-stack">
+            {renderLoginMessages(loginMessages)}
+          </div>
+        )}
         <TheFooter />
       </div>
     </>
   )
 }
 
-export default Layout
+const renderLoginMessages = messagesList => {
+  return messagesList.map(message => (
+    <ToastMessage {...message} key={message.id} />
+  ))
+}
+
+const mapStateToProps = state => {
+  return {
+    loginMessages: state.login.loginMessages,
+  }
+}
+
+export default connect(mapStateToProps)(Layout)

@@ -1,7 +1,9 @@
 import { combineReducers } from "redux"
 
+import login from "./login/login-reducer"
+
 const rootReducer = combineReducers({
-  test: () => 5,
+  login: login,
 })
 
 export default rootReducer

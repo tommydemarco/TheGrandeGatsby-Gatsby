@@ -12,6 +12,11 @@
   align-items: center;
   pointer-events: all;
 
+  &--warning {
+    background-color: #e67e22;
+    border: 2.5px solid #d35400;
+  }
+
   &__x {
     font-size: 1.8rem;
     position: absolute;
@@ -43,6 +48,7 @@
     display: block;
     font-size: 2rem;
     font-weight: 600;
+    margin-bottom: 0.5rem;
   }
 
   &__message {

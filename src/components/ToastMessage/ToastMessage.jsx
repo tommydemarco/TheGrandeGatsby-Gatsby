@@ -1,11 +1,21 @@
 import React, { useEffect, useState } from "react"
+import { connect } from "react-redux"
+import { removeAuthMessage } from "../../redux/login/login-actions"
 
 import "./ToastMessage.scss"
 
-const ToastMessage = ({ title, message, type, icon, additionalClass }) => {
+const ToastMessage = ({
+  id,
+  title,
+  message,
+  type,
+  icon,
+  additionalClass,
+  removeAuthMessage,
+}) => {
   const classes = ["toast"]
 
-  const [active, setActive] = useState(false)
+  const [active, setActive] = useState(true)
 
   if (active) {
     classes.push("active")
@@ -20,8 +30,18 @@ const ToastMessage = ({ title, message, type, icon, additionalClass }) => {
   }
 
   useEffect(() => {
-    setTimeout(() => setActive(true), 2000)
+    setTimeout(() => setActive(true), 1000)
   }, [])
+
+  useEffect(() => {
+    if (active) {
+      return
+    } else {
+      setTimeout(() => {
+        removeAuthMessage(54)
+      }, 500)
+    }
+  }, [active])
 
   return (
     <div className={classes.join(" ")}>
@@ -47,4 +67,10 @@ ToastMessage.defaultProps = {
   type: "success",
 }
 
-export default ToastMessage
+const mapDispatchToProps = dispatch => {
+  return {
+    removeAuthMessage: id => dispatch(removeAuthMessage(id)),
+  }
+}
+
+export default connect(null, mapDispatchToProps)(ToastMessage)

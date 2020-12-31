@@ -17,14 +17,13 @@ const TheHeader = () => {
     let flag = false
 
     const updateScrollDir = () => {
-      console.log("Hi from the useEffect")
       const scrollY = window.pageYOffset
       if (Math.abs(scrollY - lastScrollY) < threshold) {
         flag = false
         return
       }
       setIsScrollingDown(
-        scrollY > lastScrollY && lastScrollY > 60 ? true : false
+        scrollY > lastScrollY && lastScrollY > 45 ? true : false
       )
       flag = false
     }
@@ -38,11 +37,12 @@ const TheHeader = () => {
 
     window.addEventListener("scroll", handleScroll, { passive: true })
 
-    return () => window.removeEventListener("scroll", handleScroll)
+    return () => {
+      window.removeEventListener("scroll", handleScroll)
+    }
   }, [isScrollingDown])
 
   const activeStyle = { color: "#ced6e0" }
-  console.log(isScrollingDown)
 
   return (
     <div className={isScrollingDown ? "header compressed" : "header"}>

@@ -18,8 +18,8 @@ const login = (state = INITIAL_STATE, action) => {
           ...state.loginMessages,
           {
             id: action.payload.id,
-            user: action.payload.user,
-            text: STANDARD_TEXTS.loginSuccess,
+            title: "Welcome back, " + action.payload.user,
+            message: STANDARD_TEXTS.loginSuccess,
           },
         ],
       }

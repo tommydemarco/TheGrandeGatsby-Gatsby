@@ -10,7 +10,7 @@ export const loggedIn = user => {
 export const logInFailed = () => {
   return {
     type: "LOGIN_FAILED",
-    payload: { id: 54 },
+    payload: { id: uuidv4() },
   }
 }
 

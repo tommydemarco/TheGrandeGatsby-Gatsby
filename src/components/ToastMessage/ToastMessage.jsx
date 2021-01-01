@@ -17,7 +17,7 @@ const ToastMessage = ({
 
   const [active, setActive] = useState(true)
 
-  if (active) {
+  if (active === "initialised") {
     classes.push("active")
   }
 
@@ -30,7 +30,7 @@ const ToastMessage = ({
   }
 
   useEffect(() => {
-    setTimeout(() => setActive(true), 1000)
+    setTimeout(() => setActive("initialised"), 1000)
   }, [])
 
   useEffect(() => {
@@ -38,7 +38,7 @@ const ToastMessage = ({
       return
     } else {
       setTimeout(() => {
-        removeAuthMessage(54)
+        removeAuthMessage(id)
       }, 500)
     }
   }, [active])

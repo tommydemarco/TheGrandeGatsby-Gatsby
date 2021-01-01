@@ -40,11 +40,9 @@ const login = (state = INITIAL_STATE, action) => {
     case "REMOVE_AUTH_MESSAGE":
       return {
         ...state,
-        loginMessages: [
-          state.loginMessages.filter(message => {
-            return message.id === action.payload.id
-          }),
-        ],
+        loginMessages: state.loginMessages.filter(message => {
+          return message.id === action.payload.id
+        }),
       }
     default:
       return state

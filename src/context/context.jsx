@@ -1,6 +1,7 @@
-import React, { useState, useReducer } from "react"
+import React, { useReducer, useEffect } from "react"
+import { persistState, getInitialState } from "../utils/local-storage"
 
-const userContext = React.createContext({ user: null, jwt: null })
+const userContext = React.createContext()
 
 const initialState = {
   user: null,
@@ -9,6 +10,11 @@ const initialState = {
 
 const reducer = (state, action) => {
   switch (action.type) {
+    case "SILENT_LOGIN":
+      return {
+        user: action.payload.user,
+        jwt: action.payload.jwt,
+      }
     case "LOGIN":
       return {
         user: action.payload.user,
@@ -26,6 +32,18 @@ const reducer = (state, action) => {
 
 const GatsbyContext = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState)
+
+  useEffect(() => {
+    const stateFromLocal = getInitialState("AUTH_STATE")
+    if (stateFromLocal && stateFromLocal.user !== state.user) {
+      dispatch({ type: "SILENT_LOGIN", payload: stateFromLocal })
+    }
+  }, [])
+
+  useEffect(() => {
+    persistState("AUTH_STATE", state)
+  }, [state])
+
   return (
     <userContext.Provider value={{ state, dispatch }}>
       {children}

@@ -8,7 +8,7 @@ import TheHeader from "./src/components/TheHeader"
 
 import "./static/global.scss"
 
-export const rootElement = ({ element }) => {
+export const rootElement = ({ element, authUtils }) => {
   return (
     <Provider store={store}>
       <GatsbyContext>

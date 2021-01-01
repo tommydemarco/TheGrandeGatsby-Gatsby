@@ -14,3 +14,7 @@ export const getInitialState = storageKey => {
     return undefined
   }
 }
+
+export const clearLocalStorageItem = () => {
+  window.localStorage.removeItem("name")
+}

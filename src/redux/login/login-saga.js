@@ -1,9 +1,15 @@
 import { all, call } from "redux-saga/effects"
+import { clearLocalStorageItem } from "../../utils/local-storage"
 
-function* testFunction() {
-  yield console.log("hello from the sagas")
+function* cleanLocalStorage({ payload: { storageKey } }) {
+  yield call(clearLocalStorageItem, storageKey)
+  yield console.log("clered local storage")
+}
+
+function* logoutWatcher() {
+  yield takeEvery("LOGOUT", cleanLocalStorage)
 }
 
 export default function* loginSaga() {
-  yield all([call(testFunction)])
+  yield all([call(logoutWatcher)])
 }

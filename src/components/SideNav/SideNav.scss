@@ -1,0 +1,38 @@
+.SideNav {
+  position: fixed;
+  right: 0px;
+  width: fit-content;
+  top: 30%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-end;
+
+  &__element {
+    width: 50px;
+    height: 50px;
+    background-color: #2f3640;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: width 0.4s;
+    cursor: pointer;
+    border: 2.5px solid #7f8fa6;
+    border-right: none;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+
+    &:not(:last-child) {
+      margin-bottom: 1.5rem;
+    }
+
+    &:hover {
+      width: 55px;
+    }
+  }
+
+  &__icon {
+    font-size: 2.3rem !important;
+    color: white;
+  }
+}

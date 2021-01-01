@@ -1,4 +1,4 @@
-import { all, call } from "redux-saga/effects"
+import { all, call, takeEvery } from "redux-saga/effects"
 import { clearLocalStorageItem } from "../../utils/local-storage"
 
 function* cleanLocalStorage({ payload: { storageKey } }) {

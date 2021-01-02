@@ -4,7 +4,7 @@ import store from "./src/redux/store"
 
 import { GatsbyContext } from "./src/context/context"
 
-import TheHeader from "./src/components/TheHeader"
+import GlobalHeader from "./src/components/GlobalHeader"
 
 import "./static/global.scss"
 
@@ -12,7 +12,7 @@ export const rootElement = ({ element }) => {
   return (
     <Provider store={store}>
       <GatsbyContext>
-        <TheHeader />
+        <GlobalHeader />
         {element}
       </GatsbyContext>
     </Provider>

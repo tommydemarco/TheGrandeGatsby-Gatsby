@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react"
 import { Link } from "gatsby"
+
+import TopBar from "../TopBar"
 //==========> CSS
 import "./TheHeader.scss"
 
@@ -40,83 +42,85 @@ const TheHeader = () => {
   }, [isScrollingDown])
 
   const activeStyle = { color: "#ced6e0" }
-
   return (
-    <div className={isScrollingDown ? "header compressed" : "header"}>
-      <div className="header__container">
-        <div className="header__logotoggle">
-          <Link to="/" className="header__logo">
-            The Grande Gatsby
-          </Link>
-          <div
-            onClick={() => setMenuState(!menuState)}
+    <div className="GlobalHeader">
+      <TopBar />
+      <div className={isScrollingDown ? "header compressed" : "header"}>
+        <div className="header__container">
+          <div className="header__logotoggle">
+            <Link to="/" className="header__logo">
+              The Grande Gatsby
+            </Link>
+            <div
+              onClick={() => setMenuState(!menuState)}
+              className={
+                menuState
+                  ? `header__toggle header__toggle--active`
+                  : `header__toggle`
+              }
+            ></div>
+          </div>
+          <nav
             className={
               menuState
-                ? `header__toggle header__toggle--active`
-                : `header__toggle`
+                ? `header__navigation header__navigation--active`
+                : `header__navigation`
             }
-          ></div>
-        </div>
-        <nav
-          className={
-            menuState
-              ? `header__navigation header__navigation--active`
-              : `header__navigation`
-          }
-        >
-          <ul className="header__list">
-            <li className="header__item">
-              <Link
-                to="/blog"
-                className="header__link"
-                activeStyle={activeStyle}
-              >
-                Blog
-              </Link>
-            </li>
-            <li className="header__item">
-              <Link
-                to="/about"
-                className="header__link"
-                activeStyle={activeStyle}
-              >
-                about
-              </Link>
-            </li>
-            <li className="header__item">
-              <Link
-                to="/features"
-                className="header__link"
-                activeStyle={activeStyle}
-                //onMouseOver={() => setSubLinksVisible(true)}
-                //onMouseLeave={() => setSubLinksVisible(false)}
-              >
-                Features
-              </Link>
-              {/* <SubLinks
+          >
+            <ul className="header__list">
+              <li className="header__item">
+                <Link
+                  to="/blog"
+                  className="header__link"
+                  activeStyle={activeStyle}
+                >
+                  Blog
+                </Link>
+              </li>
+              <li className="header__item">
+                <Link
+                  to="/about"
+                  className="header__link"
+                  activeStyle={activeStyle}
+                >
+                  about
+                </Link>
+              </li>
+              <li className="header__item">
+                <Link
+                  to="/features"
+                  className="header__link"
+                  activeStyle={activeStyle}
+                  //onMouseOver={() => setSubLinksVisible(true)}
+                  //onMouseLeave={() => setSubLinksVisible(false)}
+                >
+                  Features
+                </Link>
+                {/* <SubLinks
                 status={subLinksVisible}
                 setStatus={setSubLinksVisible}
               ></SubLinks> */}
-            </li>
-            <li className="header__item">
-              <Link
-                to="/services"
-                className="header__link"
-                activeStyle={activeStyle}
-              >
-                Services
-              </Link>
-            </li>
-            <li className="header__item">
-              <a
-                className="header__button"
-                href="https://github.com/tommydemarco/TheGreatGatsby-Gatsby"
-              >
-                <i className="fa fa-github"></i>
-              </a>
-            </li>
-          </ul>
-        </nav>
+              </li>
+              <li className="header__item">
+                <Link
+                  to="/services"
+                  className="header__link"
+                  activeStyle={activeStyle}
+                >
+                  Services
+                </Link>
+              </li>
+              <li className="header__item">
+                <a
+                  className="header__button"
+                  href="https://github.com/tommydemarco/TheGreatGatsby-Gatsby"
+                >
+                  <i className="fa fa-github"></i>
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </div>
       </div>
     </div>
   )

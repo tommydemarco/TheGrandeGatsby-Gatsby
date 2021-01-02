@@ -7,13 +7,12 @@ import "./TheHeader.scss"
 
 const TheHeader = () => {
   const [menuState, setMenuState] = useState(false)
-  //const [subLinksVisible, setSubLinksVisible] = useState(false)
 
   const [isScrollingDown, setIsScrollingDown] = useState(false)
 
   useEffect(() => {
     const threshold = 0
-    const lastScrollY = window.pageYOffset
+    let lastScrollY = window.pageYOffset
     let flag = false
 
     const updateScrollDir = () => {

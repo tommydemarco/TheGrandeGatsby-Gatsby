@@ -9,7 +9,7 @@ import SideNav from "./src/components/SideNav"
 
 import "./static/global.scss"
 
-export const rootElement = ({ element, authUtils }) => {
+export const rootElement = ({ element }) => {
   return (
     <Provider store={store}>
       <GatsbyContext>

@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from "react"
 import { Link } from "gatsby"
-
-import Button from "../Button"
 //==========> CSS
 import "./TheHeader.scss"
 

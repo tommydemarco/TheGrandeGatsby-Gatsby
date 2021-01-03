@@ -6,18 +6,19 @@ import TopBar from "../TopBar"
 import "./TheHeader.scss"
 
 const TheHeader = () => {
+  //STATE FOR THE BURGER MENU ON MOBILE DEVICES - STOPS WORKING AT RANDOM
   const [menuState, setMenuState] = useState(false)
-
+  //STATE FOR DETECTING THE SCROLL DIRECTION - STOPS WORKING AT RANDOM
   const [isScrollingDown, setIsScrollingDown] = useState(false)
 
+  //USE EFFECT TO UPDATE THE SCROLL DIRECTION ON USER SCROLL - STOPS WORKING AT RANDOM
   useEffect(() => {
-    const threshold = 0
     let lastScrollY = window.pageYOffset
     let flag = false
 
     const updateScrollDir = () => {
       const scrollY = window.pageYOffset
-      if (Math.abs(scrollY - lastScrollY) < threshold) {
+      if (Math.abs(scrollY - lastScrollY)) {
         flag = false
         return
       }
@@ -43,112 +44,78 @@ const TheHeader = () => {
 
   const activeStyle = { color: "#ced6e0" }
   return (
-    <div className="GlobalHeader">
-      <TopBar />
-      <div className={isScrollingDown ? "header compressed" : "header"}>
-        <div className="header__container">
-          <div className="header__logotoggle">
-            <Link to="/" className="header__logo">
-              The Grande Gatsby
-            </Link>
-            <div
-              onClick={() => setMenuState(!menuState)}
-              className={
-                menuState
-                  ? `header__toggle header__toggle--active`
-                  : `header__toggle`
-              }
-            ></div>
-          </div>
-          <nav
+    <div className={isScrollingDown ? "header compressed" : "header"}>
+      <div className="header__container">
+        <div className="header__logotoggle">
+          <Link to="/" className="header__logo">
+            The Grande Gatsby
+          </Link>
+          <div
+            onClick={() => setMenuState(!menuState)}
             className={
               menuState
-                ? `header__navigation header__navigation--active`
-                : `header__navigation`
+                ? `header__toggle header__toggle--active`
+                : `header__toggle`
             }
-          >
-            <ul className="header__list">
-              <li className="header__item">
-                <Link
-                  to="/blog"
-                  className="header__link"
-                  activeStyle={activeStyle}
-                >
-                  Blog
-                </Link>
-              </li>
-              <li className="header__item">
-                <Link
-                  to="/about"
-                  className="header__link"
-                  activeStyle={activeStyle}
-                >
-                  about
-                </Link>
-              </li>
-              <li className="header__item">
-                <Link
-                  to="/features"
-                  className="header__link"
-                  activeStyle={activeStyle}
-                  //onMouseOver={() => setSubLinksVisible(true)}
-                  //onMouseLeave={() => setSubLinksVisible(false)}
-                >
-                  Features
-                </Link>
-                {/* <SubLinks
-                status={subLinksVisible}
-                setStatus={setSubLinksVisible}
-              ></SubLinks> */}
-              </li>
-              <li className="header__item">
-                <Link
-                  to="/services"
-                  className="header__link"
-                  activeStyle={activeStyle}
-                >
-                  Services
-                </Link>
-              </li>
-              <li className="header__item">
-                <a
-                  className="header__button"
-                  href="https://github.com/tommydemarco/TheGreatGatsby-Gatsby"
-                >
-                  <i className="fa fa-github"></i>
-                </a>
-              </li>
-            </ul>
-          </nav>
+          ></div>
         </div>
+        <nav
+          className={
+            menuState
+              ? `header__navigation header__navigation--active`
+              : `header__navigation`
+          }
+        >
+          <ul className="header__list">
+            <li className="header__item">
+              <Link
+                to="/blog"
+                className="header__link"
+                activeStyle={activeStyle}
+              >
+                Blog
+              </Link>
+            </li>
+            <li className="header__item">
+              <Link
+                to="/about"
+                className="header__link"
+                activeStyle={activeStyle}
+              >
+                about
+              </Link>
+            </li>
+            <li className="header__item">
+              <Link
+                to="/features"
+                className="header__link"
+                activeStyle={activeStyle}
+              >
+                Features
+              </Link>
+            </li>
+            <li className="header__item">
+              <Link
+                to="/services"
+                className="header__link"
+                activeStyle={activeStyle}
+              >
+                Services
+              </Link>
+            </li>
+            <li className="header__item">
+              <a
+                className="header__button"
+                href="https://github.com/tommydemarco/TheGreatGatsby-Gatsby"
+              >
+                <i className="fa fa-github"></i>
+              </a>
+            </li>
+          </ul>
+        </nav>
       </div>
     </div>
   )
 }
-
-// const SubLinks = ({ status, setStatus }) => {
-//   const activeClass = status ? " active" : ""
-
-//   return (
-//     <div
-//       onMouseOver={() => setStatus(true)}
-//       onMouseLeave={() => setStatus(false)}
-//       className={"sublinks" + activeClass}
-//     >
-//       <ul className="sublinks__list">
-//         <li className="sublinks__item">
-//           <Link to="/features/basic" className="sublinks__link">
-//             about
-//           </Link>
-//         </li>
-//         <li className="sublinks__item">
-//           <Link to="/features/premium" className="sublinks__link">
-//             about
-//           </Link>
-//         </li>
-//       </ul>
-//     </div>
-//   )
-// }
 
 export default TheHeader

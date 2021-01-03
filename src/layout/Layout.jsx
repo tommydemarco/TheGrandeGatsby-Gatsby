@@ -5,6 +5,8 @@ import { removeLoginMessage } from "../redux/login/login-actions"
 //========> COMPONENTS
 import TheFooter from "../components/TheFooter"
 import ToastMessage from "../components/ToastMessage"
+
+import GlobalHeader from "../components/GlobalHeader"
 //=======> CSS
 import "./Layout.scss"
 
@@ -14,6 +16,7 @@ const Layout = ({ children, title, subtitle, hero, loginMessages }) => {
       <Helmet>
         <script src="https://use.fontawesome.com/bc2438d946.js"></script>
       </Helmet>
+      <GlobalHeader />
       <div className="wrapper">
         {hero}
         <div className="content">

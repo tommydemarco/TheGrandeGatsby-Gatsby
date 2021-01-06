@@ -12,6 +12,7 @@ export const rootElement = ({ element }) => {
   return (
     <Provider store={store}>
       <GatsbyContext>
+        <div id="popup"></div>
         <GlobalHeader />
         {element}
       </GatsbyContext>

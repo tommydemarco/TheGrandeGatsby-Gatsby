@@ -1,9 +1,26 @@
-import React from "react"
+import React, { useState, useEffect } from "react"
 import ReactDOM from "react-dom"
 
-const InfoPopup = () => {
+import "./InfoPopup.scss"
+
+const InfoPopup = ({ visible, setPopupVisible }) => {
+  const [baseClasses, setBaseClasses] = useState(["InfoPopup"])
+
+  useEffect(() => {
+    if (baseClasses.length === 1 && visible) {
+      setBaseClasses(prevState => [...prevState, "visible"])
+    }
+  }, [baseClasses])
+
   return ReactDOM.createPortal(
-    <div className="InfoPopup">Some gibrish here</div>,
+    <div
+      className={baseClasses.join(" ")}
+      onClick={() => setPopupVisible(false)}
+    >
+      <div className="InfoPopup__content-container">
+        This Gallery was made using CSS grids!
+      </div>
+    </div>,
     document.querySelector("#popup")
   )
 }

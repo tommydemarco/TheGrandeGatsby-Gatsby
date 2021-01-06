@@ -104,6 +104,15 @@ const TheHeader = () => {
               </Link>
             </li>
             <li className="header__item">
+              <Link
+                to="/gallery"
+                className="header__link"
+                activeStyle={activeStyle}
+              >
+                Gallery
+              </Link>
+            </li>
+            <li className="header__item">
               <a
                 className="header__button"
                 href="https://github.com/tommydemarco/TheGreatGatsby-Gatsby"

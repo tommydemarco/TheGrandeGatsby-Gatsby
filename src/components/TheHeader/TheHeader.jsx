@@ -1,23 +1,24 @@
 import React, { useState, useEffect } from "react"
 import { Link } from "gatsby"
 
-import Button from "../Button"
+import TopBar from "../TopBar"
 //==========> CSS
 import "./TheHeader.scss"
 
 const TheHeader = () => {
+  //STATE FOR THE BURGER MENU ON MOBILE DEVICES - STOPS WORKING AT RANDOM
   const [menuState, setMenuState] = useState(false)
-
+  //STATE FOR DETECTING THE SCROLL DIRECTION - STOPS WORKING AT RANDOM
   const [isScrollingDown, setIsScrollingDown] = useState(false)
 
+  //USE EFFECT TO UPDATE THE SCROLL DIRECTION ON USER SCROLL - STOPS WORKING AT RANDOM
   useEffect(() => {
-    const threshold = 0
     let lastScrollY = window.pageYOffset
     let flag = false
 
     const updateScrollDir = () => {
       const scrollY = window.pageYOffset
-      if (Math.abs(scrollY - lastScrollY) < threshold) {
+      if (Math.abs(scrollY - lastScrollY)) {
         flag = false
         return
       }
@@ -42,7 +43,6 @@ const TheHeader = () => {
   }, [isScrollingDown])
 
   const activeStyle = { color: "#ced6e0" }
-
   return (
     <div className={isScrollingDown ? "header compressed" : "header"}>
       <div className="header__container">
@@ -90,15 +90,9 @@ const TheHeader = () => {
                 to="/features"
                 className="header__link"
                 activeStyle={activeStyle}
-                //onMouseOver={() => setSubLinksVisible(true)}
-                //onMouseLeave={() => setSubLinksVisible(false)}
               >
                 Features
               </Link>
-              {/* <SubLinks
-                status={subLinksVisible}
-                setStatus={setSubLinksVisible}
-              ></SubLinks> */}
             </li>
             <li className="header__item">
               <Link
@@ -107,6 +101,15 @@ const TheHeader = () => {
                 activeStyle={activeStyle}
               >
                 Services
+              </Link>
+            </li>
+            <li className="header__item">
+              <Link
+                to="/gallery"
+                className="header__link"
+                activeStyle={activeStyle}
+              >
+                Gallery
               </Link>
             </li>
             <li className="header__item">
@@ -123,30 +126,5 @@ const TheHeader = () => {
     </div>
   )
 }
-
-// const SubLinks = ({ status, setStatus }) => {
-//   const activeClass = status ? " active" : ""
-
-//   return (
-//     <div
-//       onMouseOver={() => setStatus(true)}
-//       onMouseLeave={() => setStatus(false)}
-//       className={"sublinks" + activeClass}
-//     >
-//       <ul className="sublinks__list">
-//         <li className="sublinks__item">
-//           <Link to="/features/basic" className="sublinks__link">
-//             about
-//           </Link>
-//         </li>
-//         <li className="sublinks__item">
-//           <Link to="/features/premium" className="sublinks__link">
-//             about
-//           </Link>
-//         </li>
-//       </ul>
-//     </div>
-//   )
-// }
 
 export default TheHeader

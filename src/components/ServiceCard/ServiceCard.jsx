@@ -18,11 +18,11 @@ const ServiceCard = ({ image, title, description, attribute, pretty_url }) => {
 
       <div className="serviceCard__content">
         <h3 className="serviceCard__title">{title}</h3>
-        <p className="serviceCard__description">
+        <div className="serviceCard__description">
           <ReactMarkdown
             source={description.slice(0, 640) + "..."}
           ></ReactMarkdown>
-        </p>
+        </div>
         <Button
           additionalClass="serviceCard__button"
           to={"/services/" + pretty_url}

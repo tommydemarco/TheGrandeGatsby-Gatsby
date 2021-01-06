@@ -1,0 +1,26 @@
+.InfoPopup {
+  position: fixed;
+  background-color: transparent;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 99;
+  transition: all 1s;
+
+  &.visible {
+    background: rgba(0, 0, 0, 0.692);
+    transition: all 1s;
+  }
+
+  &__content-container {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 20%;
+    left: 20%;
+    background-color: white;
+    padding: 2rem;
+    border-radius: 30px;
+  }
+}

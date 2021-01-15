@@ -27,7 +27,7 @@ module.exports = {
         apiURL: `http://localhost:1337`,
         queryLimit: 1000, // Default to 100
         singleTypes: [`about`],
-        contentTypes: [`posts`, `services`, `features`, `sliders`],
+        contentTypes: [`posts`, `services`, `features`, `sliders`, `galleries`],
       },
     },
   ],

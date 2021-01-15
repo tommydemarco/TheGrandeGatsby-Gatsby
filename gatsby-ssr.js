@@ -1,3 +1,3 @@
-// import { rootElement } from "./root-element"
+import { rootElement } from "./root-element"
 
-// export const wrapRootElement = rootElement
+export const wrapRootElement = rootElement

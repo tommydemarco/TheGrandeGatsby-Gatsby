@@ -1,0 +1,40 @@
+.GalleryItem {
+  &--5 {
+    width: 50%;
+  }
+
+  &--6 {
+    width: 60%;
+  }
+
+  &--7 {
+    width: 70%;
+  }
+
+  &--8 {
+    width: 80%;
+  }
+
+  &--9 {
+    width: 90%;
+  }
+
+  &--10 {
+    width: 100%;
+  }
+
+  &--left {
+    margin-right: auto;
+  }
+
+  &--right {
+    margin-left: auto;
+  }
+
+  &__description {
+    margin-top: 2rem;
+    border-left: 2px solid black;
+    padding: 1rem;
+    padding-top: 0;
+  }
+}

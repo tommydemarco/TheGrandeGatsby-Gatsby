@@ -40,7 +40,7 @@ const TheHeader = () => {
     return () => {
       window.removeEventListener("scroll", handleScroll)
     }
-  }, [isScrollingDown])
+  }, [])
 
   const activeStyle = { color: "#ced6e0" }
   return (

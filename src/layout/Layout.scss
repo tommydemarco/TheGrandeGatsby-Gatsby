@@ -30,7 +30,7 @@ strong {
   margin: 2rem 0 1.5rem;
 }
 .wrapper {
-  padding-top: 140px;
+  padding-top: 95px;
 }
 .content {
   margin: 4rem auto 4rem auto;
@@ -76,4 +76,28 @@ strong {
   height: 100%;
   z-index: 9999;
   pointer-events: none;
+}
+
+.CookieConsent {
+  padding: 5px 20%;
+  background-color: #2f3640 !important;
+  font-size: 1.8rem;
+
+  & a {
+    color: white;
+    text-decoration: underline;
+  }
+
+  & #rcc-confirm-button {
+    font-size: 1.8rem;
+    padding: 10px 15px !important;
+    font-family: "Roboto", sans-serif;
+    background-color: white !important;
+    color: #2f3640 !important;
+    transition: all 0.3s;
+
+    &:hover {
+      background-color: rgb(223, 223, 223) !important;
+    }
+  }
 }

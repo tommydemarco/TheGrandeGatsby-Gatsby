@@ -103,7 +103,7 @@ const TheHeader = () => {
                 Services
               </Link>
             </li>
-            <li className="header__item">
+            {/* <li className="header__item">
               <Link
                 to="/gallery"
                 className="header__link"
@@ -111,7 +111,16 @@ const TheHeader = () => {
               >
                 Gallery
               </Link>
-            </li>
+            </li> */}
+            {/* <li className="header__item">
+              <Link
+                to="/login"
+                className="header__link"
+                activeStyle={activeStyle}
+              >
+                Login
+              </Link>
+            </li> */}
             <li className="header__item">
               <a
                 className="header__button"

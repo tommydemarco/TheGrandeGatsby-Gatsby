@@ -94,7 +94,7 @@ const BlogPage = () => {
           {renderBlogPosts(data.allStrapiPosts.nodes, category)}
         </animated.div>
       </section>
-      <Survey />
+      {/* <Survey /> */}
     </Layout>
   )
 }

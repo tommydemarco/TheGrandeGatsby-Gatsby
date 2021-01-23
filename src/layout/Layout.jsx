@@ -1,7 +1,9 @@
 import React from "react"
+import { Link } from "gatsby"
 import { Helmet } from "react-helmet"
 import { connect } from "react-redux"
 import { removeLoginMessage } from "../redux/login/login-actions"
+import CookieConsent, { Cookies } from "react-cookie-consent"
 //========> COMPONENTS
 import TheFooter from "../components/TheFooter"
 import ToastMessage from "../components/ToastMessage"
@@ -16,6 +18,10 @@ const Layout = ({ children, title, subtitle, hero, loginMessages }) => {
       <Helmet>
         <script src="https://use.fontawesome.com/bc2438d946.js"></script>
       </Helmet>
+      <CookieConsent>
+        This website uses cookies to enhance the user experience.&nbsp;
+        <Link to="/privacy/cookies">Cookies policy</Link>
+      </CookieConsent>
       <GlobalHeader />
       <div className="wrapper">
         {hero}

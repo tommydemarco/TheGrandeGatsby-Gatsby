@@ -6,7 +6,7 @@ import { onlyUnique } from "../../js/helpers"
 import { useSpring, animated } from "react-spring"
 import SEO from "../../components/SEO"
 import { userContext } from "../../context/context"
-import Login from "../../components/Login"
+//import Login from "../../components/Login"
 
 import "./services.scss"
 
@@ -60,9 +60,9 @@ const ServicesPage = () => {
     }, 400)
   }
 
-  if (state.user === null) {
-    return <Login />
-  }
+  // if (state.user === null) {
+  //   return <Login />
+  // }
 
   return (
     <Layout

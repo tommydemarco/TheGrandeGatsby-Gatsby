@@ -44,6 +44,8 @@ const LoginPage = ({ data }) => {
     console.log(responseData)
   }
 
+  return <></>
+
   return (
     <Layout
       title="Howdy, user!"

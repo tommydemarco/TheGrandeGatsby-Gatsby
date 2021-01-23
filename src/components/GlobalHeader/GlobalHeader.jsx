@@ -8,7 +8,6 @@ import "./GlobalHeader.scss"
 const GlobalHeader = () => {
   return (
     <header className="GlobalHeader">
-      <TopBar />
       <TheHeader />
     </header>
   )

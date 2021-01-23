@@ -64,6 +64,10 @@ const Login = ({ page, loggedIn, logInFailed }) => {
             temporibus ex reiciendis modi aliquam harum tempore tenetur iusto
             quis corrupti beatae?
           </p>
+          <p style={{ color: "red" }}>
+            Oooops, I still need to set up the backend for this domain. Login
+            not yet available
+          </p>
           <div className="form">
             <input
               type="email"
